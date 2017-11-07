@@ -2,5 +2,7 @@
   "name": "ionic-qrapp",
   "app_id": "7b820974",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
