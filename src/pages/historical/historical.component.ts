@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { QRServiceProvider } from '../../providers/qr-service/qr-service'
+import { ScanData } from '../../models/scan-data.model'
 
 @Component({
   selector: 'page-historical',
@@ -7,11 +8,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class HistoricalPageComponent {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  historical: ScanData[] = [];
+
+  constructor(private _qrService: QRServiceProvider) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HistoricalPage');
+    this.historical = this._qrService.getHistorical();
+  }
+
+  openScan(index: number) {
+    this._qrService.openScan(index);
   }
 
 }
