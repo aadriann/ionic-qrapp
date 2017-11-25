@@ -21,12 +21,13 @@ export class QRServiceProvider {
 
   openScan(index: number) {
     let scanData = this._historical[index];
-    console.log(scanData);
+    console.log("Information", scanData.information);
+    console.log("Type", scanData.type);
     switch(scanData.type) {
       case "http":
         this.iab.create(scanData.information, "_system");
       case "map":
-        this.modalCtrl.create(ModalPageComponent, { coords: scanData.information })
+        this.modalCtrl.create(ModalPageComponent, { coords: scanData.information }).present();
       break
 
       default:
