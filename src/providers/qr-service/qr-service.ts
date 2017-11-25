@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { ScanData } from '../../models/scan-data.model'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { ModalController } from "ionic-angular"
+import { ModalPageComponent } from "../../pages/modal/modal.component"
+
 @Injectable()
 export class QRServiceProvider {
 
   private _historical: ScanData[] = [];
-  constructor(private iab: InAppBrowser) {}
+  constructor(private iab: InAppBrowser, private modalCtrl: ModalController) {}
 
   add(qrData) {
     let data = new ScanData(qrData);
@@ -22,6 +25,8 @@ export class QRServiceProvider {
     switch(scanData.type) {
       case "http":
         this.iab.create(scanData.information, "_system");
+      case "map":
+        this.modalCtrl.create(ModalPageComponent, { coords: scanData.information })
       break
 
       default:
