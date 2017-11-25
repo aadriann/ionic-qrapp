@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-modal',
@@ -7,11 +7,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ModalPageComponent {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  latitude: number;
+  longitude: number;
+  zoom: number;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalPage');
+  constructor(public navParams: NavParams) {
+    this.latitude = 40.4521419;
+    this.longitude = -3.6903855000000476;
+    this.zoom = 15;
   }
-
 }
