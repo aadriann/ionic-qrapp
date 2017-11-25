@@ -12,10 +12,13 @@ export class ModalPageComponent {
   zoom: number;
 
   constructor(public navParams: NavParams, private viewCtrl: ViewController) {
-    this.latitude = 40.4521419;
-    this.longitude = -3.6903855000000476;
+    let coords = navParams.get("coords").split(",");
+    this.latitude = Number(coords[0].replace("geo:", ""));
+    this.longitude = Number(coords[1].replace("geo:", ""));
     this.zoom = 15;
     console.log("cords", this.navParams.get("coords"));
+    console.log("latitude", this.latitude);
+    console.log("longitude", this.longitude);
   }
 
   closeModal() {
