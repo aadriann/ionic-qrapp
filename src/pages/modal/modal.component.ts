@@ -12,6 +12,7 @@ export class ModalPageComponent {
   zoom: number;
 
   constructor(public navParams: NavParams, private viewCtrl: ViewController) {
+    // Getting coords
     let coords = navParams.get("coords").split(",");
     this.latitude = Number(coords[0].replace("geo:", ""));
     this.longitude = Number(coords[1].replace("geo:", ""));
