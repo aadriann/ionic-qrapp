@@ -3,12 +3,12 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPageComponent , ModalPageComponent} from '../pages/index';
+import { TabsPageComponent} from '../pages/index';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ModalPageComponent;
+  rootPage:any = TabsPageComponent;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
