@@ -1,5 +1,5 @@
 export class ScanData {
-  information: string;
+  information: any;
   type: string;
 
   constructor(data: string) {
@@ -9,6 +9,10 @@ export class ScanData {
       this.type = "http";
     } else if(data.startsWith("geo")) {
       this.type = "map";
+    } else if(data.startsWith("BEGIN:VCARD")) {
+      this.type = "contact";
+    } else if(data.startsWith("MATMSG")) {
+      this.type = "email";
     }
   }
 }

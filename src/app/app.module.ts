@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AgmCoreModule } from '@agm/core';
+import { Contacts } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 import { MyApp } from './app.component';
 import { HomePageComponent, TabsPageComponent, ModalPageComponent, HistoricalPageComponent } from '../pages/index';
@@ -39,6 +41,8 @@ import { QRServiceProvider } from '../providers/qr-service/qr-service';
     SplashScreen,
     BarcodeScanner,
     InAppBrowser,
+    Contacts,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     QRServiceProvider
   ]

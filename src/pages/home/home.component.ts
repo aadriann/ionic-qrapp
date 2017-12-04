@@ -20,7 +20,19 @@ export class HomePageComponent {
   presentToast(data: string) {
     console.log("Init Scan");
     if(!this.platform.is('cordova')) {
-      this._qrService.add("http://google.es");
+      // this._qrService.add("https://google.es");
+      // this._qrService.add("geo:9.976133040865312, -84.006774790551");
+      this._qrService.add( `BEGIN:VCARD
+VERSION:2.1
+N:Kent;Clark
+FN:Clark Kent
+ORG:
+TEL;HOME;VOICE:12345
+TEL;TYPE=cell:67890
+ADR;TYPE=work:;;;
+EMAIL:clark@superman.com
+END:VCARD`);
+//this._qrService.add("MATMSG:TO:adrianrl@outlook.es;SUB:Prueba;BODY:Prueba;;");
       return;
     }
     let toast = this.toastCtrl.create({
